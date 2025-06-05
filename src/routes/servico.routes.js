@@ -6,7 +6,7 @@ const ServicosController = require('../controllers/ServicoController');
 router.get('/', ServicosController.list); 
 router.post('/', ServicosController.create); 
  
-router.delete('/delete/:id', ServicosController.deleteProduct)
-router.put('/update', ServicosController.updateProduct)
+router.delete('/delete/:id', ServicosController.deleteServico)
+router.put('/update', ServicosController.updateServico)
 
 module.exports = router; 

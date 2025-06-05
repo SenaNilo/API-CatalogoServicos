@@ -7,26 +7,36 @@ class ServicoController {
   } 
  
   static async create(req, res) { 
-    const { name, price, description } = req.body; 
+    /* 
+      model Servico {
+        id Int @id @default(autoincrement())
+        titulo String
+        descricao String
+        preco Float
+        telefone String
+      } 
+    */
+    const { titulo, descricao, preco, telefone } = req.body; 
  
     const servico = await prisma.servico.create({ 
-      data: { name, price: parseFloat(price), description } 
+      data: { titulo, descricao, preco: parseFloat(preco), telefone } 
     }); 
  
     res.json(servico); 
   }
   
   static async updateServico(req, res){
-    const { id, name, price, description } = req.body; 
+    const { id, titulo, descricao, preco, telefone } = req.body; 
 
     const updatedServico = await prisma.servico.update({
       where: {
-        id
+        id: parseInt(id)
       },
       data: {
-        name,
-        price: parseFloat(price), 
-        description
+        titulo: titulo,
+        descricao: descricao,
+        preco: parseFloat(preco), 
+        telefone: telefone
       }
     })
 

@@ -38,7 +38,7 @@ class AuthController {
   }
 
   static async cadastro(req, res){
-    const { username, password } = req.body;
+    const { username, password, tipo } = req.body;
 
     const salt = bcrypt.genSaltSync(8);
     const hash = bcrypt.hashSync(password, salt);
@@ -46,7 +46,8 @@ class AuthController {
     const newUser = await prisma.user.create({
       data: {
         username,
-        password: hash
+        password: hash,
+        tipo
       }
     })
 
