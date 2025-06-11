@@ -24,7 +24,7 @@ class AuthController {
       //   { expiresIn: '1h' } 
       // ); 
 
-      res.json({ user });
+      res.json(user);
 
     }catch(error){
       res.status(500).json({ error: "Erro ao fazer login"});
