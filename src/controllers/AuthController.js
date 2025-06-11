@@ -18,13 +18,13 @@ class AuthController {
         return res.status(401).json({ message: 'Credenciais inválidas' }); 
       } 
 
-      const token = jwt.sign( 
-        { userId: user.id, username: user.username }, 
-        SECRET_KEY, 
-        { expiresIn: '1h' } 
-      ); 
+      // const token = jwt.sign( 
+      //   { userId: user.id, username: user.username }, 
+      //   SECRET_KEY, 
+      //   { expiresIn: '1h' } 
+      // ); 
 
-      res.json({ token }); 
+      res.json({ user });
 
     }catch(error){
       res.status(500).json({ error: "Erro ao fazer login"});
